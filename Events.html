@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Events</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    >
+    <style>
+      body { background-color: #f8f9fa; }
+
+      /* Sidebar */
+      .sidebar {
+        height: 100vh;
+        background-color: #212529;
+        color: white;
+        border-radius: 0 1rem 1rem 0;
+        padding: 2rem 1rem;
+      }
+      .sidebar button { width: 100%; }
+      .sidebar a { text-decoration: none; }
+
+      /* Header box */
+      .header-box {
+        background-color: #212529;
+        color: white;
+        border-radius: 2rem;
+        padding: 1.5rem 2rem;
+        text-align: center;
+        margin: 2rem auto;
+        width: 60%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Event cards */
+      .event-card {
+        border: none;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+        background-color: #fff;
+      }
+      .event-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+      }
+      .event-card img { height: 220px; object-fit: cover; width: 100%; }
+      .event-card .card-body { text-align: center; }
+
+      /* Bookings table */
+      #bookingsTable th, #bookingsTable td {
+        text-align: center;
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3 sidebar d-flex flex-column justify-content-start">
+          <div class="text-center mb-4">
+            <img src="raspberry-pi-light.webp" alt="Raspberry Pi Icon" height="60" class="mb-3">
+            <h4>Menu</h4>
+          </div>
+          <a href="Homepage.html" class="mb-3"><button class="btn btn-light w-100">Home</button></a>
+          <a href="support.html" class="mb-3"><button class="btn btn-light w-100">Support</button></a>
+          <a href="events.html" class="mb-3"><button class="btn btn-light w-100">Events</button></a>
+          <a href="about.html" class="mb-3"><button class="btn btn-light w-100">About</button></a>
+          <a href="account.html" class="mt-auto"><button class="btn btn-outline-light w-100">Account</button></a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-9">
+          <div class="header-box mt-4"><h2 class="mb-0">Upcoming Events</h2></div>
+
+          <div class="container mb-5">
+            <div class="row g-4 justify-content-center">
+              <!-- Event Cards -->
+              <div class="col-md-4">
+                <div class="card event-card">
+                  <img src="event1.jpg" alt="Tech Workshop">
+                  <div class="card-body">
+                    <h5 class="card-title">Tech Workshop 2025</h5>
+                    <p class="card-text">Hands-on Raspberry Pi projects and coding fun!</p>
+                    <p><strong>Date:</strong> November 10, 2025</p>
+                    <button class="btn btn-dark rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#bookingModal" data-event="Tech Workshop 2025" data-date="November 10, 2025">Register</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="card event-card">
+                  <img src="event2.jpg" alt="Robotics Meetup">
+                  <div class="card-body">
+                    <h5 class="card-title">Robotics Meetup</h5>
+                    <p class="card-text">Build, program, and showcase your robots!</p>
+                    <p><strong>Date:</strong> December 2, 2025</p>
+                    <button class="btn btn-dark rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#bookingModal" data-event="Robotics Meetup" data-date="December 2, 2025">Join Now</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="card event-card">
+                  <img src="event3.jpg" alt="AI & IoT Conference">
+                  <div class="card-body">
+                    <h5 class="card-title">AI & IoT Conference</h5>
+                    <p class="card-text">Explore AI and IoT innovation.</p>
+                    <p><strong>Date:</strong> January 15, 2026</p>
+                    <button class="btn btn-dark rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#bookingModal" data-event="AI & IoT Conference" data-date="January 15, 2026">Learn More</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="my-5"></div>
+            <div class="text-center"><h5>Stay tuned for more upcoming events!</h5></div>
+
+            <!-- Bookings Display -->
+            <div class="mt-5">
+              <h3 class="text-center mb-4">My Bookings</h3>
+              <div class="table-responsive">
+                <table class="table table-striped" id="bookingsTable">
+                  <thead class="table-dark">
+                    <tr>
+                      <th>#</th>
+                      <th>Event</th>
+                      <th>Date</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="bookingModalLabel">Register for Event</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="bookingForm">
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="eventName" class="form-label">Event</label>
+                <input type="text" class="form-control" id="eventName" name="eventName" readonly>
+              </div>
+              <div class="mb-3">
+                <label for="eventDate" class="form-label">Date</label>
+                <input type="text" class="form-control" id="eventDate" name="eventDate" readonly>
+              </div>
+              <div class="mb-3">
+                <label for="fullName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="fullName" name="fullName" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-dark">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Load bookings from localStorage
+      let bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+
+      function renderBookings() {
+        const tbody = document.querySelector('#bookingsTable tbody');
+        tbody.innerHTML = '';
+        bookings.forEach((b, i) => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${i + 1}</td>
+            <td>${b.event}</td>
+            <td>${b.date}</td>
+            <td>${b.name}</td>
+            <td>${b.email}</td>
+            <td><button class="btn btn-danger btn-sm" onclick="cancelBooking(${i})">Cancel</button></td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      renderBookings();
+
+      function cancelBooking(index) {
+        if (confirm(`Are you sure you want to cancel your booking for "${bookings[index].event}"?`)) {
+          bookings.splice(index, 1);
+          localStorage.setItem('bookings', JSON.stringify(bookings));
+          renderBookings();
+        }
+      }
+
+      // Fill modal with event details
+      const bookingModal = document.getElementById('bookingModal');
+      bookingModal.addEventListener('show.bs.modal', event => {
+        const button = event.relatedTarget;
+        const eventName = button.getAttribute('data-event');
+        const eventDate = button.getAttribute('data-date');
+        bookingModal.querySelector('#eventName').value = eventName;
+        bookingModal.querySelector('#eventDate').value = eventDate;
+      });
+
+      // Handle form submission
+      document.getElementById('bookingForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const newBooking = {
+          event: document.getElementById('eventName').value,
+          date: document.getElementById('eventDate').value,
+          name: document.getElementById('fullName').value,
+          email: document.getElementById('email').value
+        };
+        bookings.push(newBooking);
+        localStorage.setItem('bookings', JSON.stringify(bookings));
+        renderBookings();
+        alert(`Thank you, ${newBooking.name}! You have successfully registered for ${newBooking.event}.`);
+        bootstrap.Modal.getInstance(bookingModal).hide();
+        this.reset();
+      });
+    </script>
+  </body>
+</html>

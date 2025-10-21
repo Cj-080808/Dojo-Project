@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Account</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    >
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        height: 100vh;
+        background-color: #212529;
+        color: white;
+        border-radius: 0 1rem 1rem 0;
+        padding: 2rem 1rem;
+      }
+
+      .sidebar button {
+        width: 100%;
+      }
+
+      .sidebar a {
+        text-decoration: none;
+      }
+
+      /* Header box */
+      .header-box {
+        background-color: #212529;
+        color: white;
+        border-radius: 2rem;
+        padding: 1.5rem 2rem;
+        text-align: center;
+        margin: 2rem auto;
+        width: 60%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Login form */
+      .login-card {
+        background-color: #212529;
+        color: white;
+        border-radius: 2rem;
+        padding: 2rem 3rem;
+        max-width: 500px;
+        margin: 2rem auto;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .login-card h3 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .login-card label {
+        display: block;
+        margin-top: 1rem;
+        font-weight: 500;
+      }
+
+      .login-card input {
+        width: 100%;
+        padding: 0.7rem;
+        border-radius: 0.5rem;
+        border: none;
+        margin-top: 0.3rem;
+      }
+
+      .login-card input:focus {
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.7);
+      }
+
+      .login-card button {
+        background-color: #0d6efd;
+        color: white;
+        border: none;
+        padding: 0.7rem 2rem;
+        border-radius: 2rem;
+        display: block;
+        margin: 1.5rem auto 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .login-card button:hover {
+        background-color: #0b5ed7;
+        box-shadow: 0 0 10px rgba(13, 110, 253, 0.6);
+      }
+
+      .login-card p {
+        text-align: center;
+      }
+
+      .login-card a {
+        color: #0d6efd;
+        text-decoration: none;
+      }
+
+      .login-card a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3 sidebar d-flex flex-column justify-content-start">
+          <div class="text-center mb-4">
+            <img src="raspberry-pi-light.webp" alt="Raspberry Pi Icon" height="60" class="mb-3">
+            <h4>Menu</h4>
+          </div>
+
+          <a href="Homepage.html" class="mb-3">
+            <button class="btn btn-light w-100">Home</button>
+          </a>
+          <a href="support.html" class="mb-3">
+            <button class="btn btn-light w-100">Support</button>
+          </a>
+          <a href="events.html" class="mb-3">
+            <button class="btn btn-light w-100">Events</button>
+          </a>
+          <a href="about.html" class="mb-3">
+            <button class="btn btn-light w-100">About</button>
+          </a>
+          <a href="account.html" class="mt-auto">
+            <button class="btn btn-outline-light w-100">Account</button>
+          </a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-9">
+          <!-- Header Box -->
+          <div class="header-box mt-4">
+            <h2 class="mb-0">Account Login</h2>
+          </div>
+
+          <!-- Login Form -->
+          <div class="login-card">
+            <h3>Sign In to Your Account</h3>
+
+            <form action="#" method="post">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter your username"
+                required
+              >
+
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+              >
+
+              <button type="submit">Login</button>
+            </form>
+
+            <p>
+              Not registered?
+              <a href="#">Create an account</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
